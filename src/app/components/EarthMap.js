@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useRef } from "react";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
@@ -12,10 +11,17 @@ export default function EaerthMap() {
 
     const map = new maplibregl.Map({
       container: mapContainer.current,
-      style: "https://demotiles.maplibre.org/style.json",
+      style: 
+        "https://tiles.basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
       center: [0, 0],
       zoom: 1.3,
       projection: "globe",
+      renderWorldCopies: false,
+      maxBounds: [[-180, -85], [180, 85]],
+      minZoom: 1.2,
+      maxZoom: 6,
+      maxPitch: 85,
+      minPitch: 0
     });
 
     map.on("style.load", () => {

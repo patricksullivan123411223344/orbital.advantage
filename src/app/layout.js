@@ -1,6 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import EarthMap from "./components/EarthMap"; 
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,13 +22,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
       >
-        <div className="relative w-full h-screen">
-          <EarthMap />
-
-          <div className="absolute top-0 left-0 z-10 w-full h-full">
-            {children}
-          </div>
-        </div>
+        {children}
       </body>
     </html>
   );
